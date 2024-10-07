@@ -54,7 +54,7 @@ public class LinearEquation {
     }
     public String newX(){
         double yint=(y2-(((double)(y2-y)/(x2-x))*x2));
-        double newY = newX*(Double.parseDouble(slope())+yint);
+        double newY = newX*((double)(y2-y)/(x2-x))+yint;
         return "Point on Line: ("+newX+","+String.format("%.2f",newY)+")";
     }
     public String format(){
