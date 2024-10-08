@@ -39,7 +39,7 @@ public class LinearEquation {
     }
     public String distance(){
         double d = Math.sqrt(Math.pow((x2-x),2)+Math.pow((y2-y),2));
-        return ""+d;
+        return String.format("%.2f",d);
     }
     public String yInt(){
         double yint;
@@ -49,7 +49,7 @@ public class LinearEquation {
             return "";
             }
         else{
-            return "" + yint;
+            return "" + String.format("%.2f",yint);
         }
     }
     public String newX(){
