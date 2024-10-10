@@ -59,8 +59,16 @@ public class LinearEquation {
     }
     public String format(){
         String s = slope();
-        String y = yInt();
-        return (s+"x + " + y);
+        String yI = yInt();
+        String str;
+        if (yI.indexOf("")== 0) {
+            str = s + "x";
+        }
+        else{
+            str = s + "x + "+yI;
+        }
+        String display = "First Coordinate: (" + x + ","+ y +")\nSecond Coordinate: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nPoint on line: "+newX()+"\nEquation of Line: "+str;
+        return display;
     }
 
 }
