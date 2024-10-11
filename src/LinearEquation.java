@@ -31,7 +31,7 @@ public class LinearEquation {
             }
         }
         else if ((x2-x) < 1) {
-            return (y2-y) + "/" + Math.abs(x2-x);
+            return "-" + (y2-y) + "/" + Math.abs(x2-x);
         }
         else {
             return (y2-y) + "/" + (x2-x);
