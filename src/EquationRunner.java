@@ -43,6 +43,6 @@ public class EquationRunner {
         String nX = s.nextLine();
         double newX = Double.parseDouble(nX);
         LinearEquation coords = new LinearEquation(xx1,yy1,xx2,yy2,newX);
-        System.out.println(coords.format());
+        System.out.println(coords.toString());
     }
 }

@@ -48,7 +48,7 @@ public class LinearEquation {
         double s = ((double)(y2-y)/(x2-x));
         yint = (y2-(s*x2));
         if (yint == 0){
-            return "";
+            return "0";
             }
         else{
             return String.format("%.2f",yint);
@@ -59,11 +59,11 @@ public class LinearEquation {
         double newY = newX*((double)(y2-y)/(x2-x))+yint;
         return "Point on Line: ("+newX+","+String.format("%.2f",newY)+")";
     }
-    public String format(){
+    public String toString(){
         String s = slope();
         String yI = yInt();
         String str;
-        if (yI.equals("0")) {
+        if (yI.contains("0")) {
             str = s + "x";
         }
         else {
@@ -73,7 +73,7 @@ public class LinearEquation {
                 str = s + "x+" + yI;
             }
         }
-        return "First Coordinate: (" + x + ","+ y +")\nSecond Coordinate: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nPoint on line: "+newX()+"\nEquation of Line: "+str;
+        return "First Point: (" + x + ","+ y +")\nSecond Point: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nDistance Between Points: "+distance()+"\n"+newX()+"\nEquation of Line: "+str;
     }
 
 }
