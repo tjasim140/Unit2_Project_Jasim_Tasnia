@@ -69,24 +69,21 @@ public class LinearEquation {
         return "Point on Line: ("+nX+","+String.format("%.2f",newY)+")";
     }
     //Formats relevant information of the object as a printable string
-    public String toString(){
+    public String toString() {
         String s = slope();
         String yI = yInt();
         String str;
         //leaves out + or minus sign so no y-int is printed when y-int = 0
-        if (yI.contains("0")) {
-            str = s + "x";
-        }
         //leaves out - sign if y-int is negative so +-y-int is not printed when formating equation
-        else {
-            if (yI.contains("-")) {
-                str = s + "x" + yI;
-        //Adds + so y-int is correctly printed in y=mx+b form
-            } else {
-                str = s + "x+" + yI;
-            }
+        if (yI.contains("-")) {
+            str = (s + "x" + yI);
+            //Adds + so y-int is correctly printed in y=mx+b form
+        } else if (yI.equals("0")) {
+            str = (s + "x");
+        } else {
+            str = (s + "x+" + yI);
         }
-        return "First Point: (" + x + ","+ y +")\nSecond Point: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nDistance Between Points: "+distance()+"\nEquation of Line: "+str;
+        return "First Point: (" + x + ","+ y +")\nSecond Point: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nDistance Between Points: "+distance()+"\nEquation of Line: " + str;
     }
 
 }
