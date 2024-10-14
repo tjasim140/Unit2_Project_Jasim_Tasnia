@@ -12,30 +12,32 @@ public class LinearEquation {
         this.y2=y2;
         this.newX=newX;
     }
-    public String slope(){
-        if ((y2-y) % (x2-x) == 0) {
-            if ((((y2-y)/(x2-x))==1)) {
+    public String slope() {
+        //if whole # slope
+        if ((y2 - y) % (x2 - x) == 0) {
+            if ((((y2 - y) / (x2 - x)) == 1)) {
                 return "";
-            }else {
+            } else {
                 int result = ((y2 - y) / (x2 - x));
-                    return "" + result;
+                return "" + result;
             }
-        } else if ((((y2-y)/(x2-x)) == -1)) {
-            return "-";
-        } else if (((y2-y) < 1)) {
-            if ((x2-x) < 1) {
-                return Math.abs(y2 - y) + "/" + Math.abs(x2 - x);
-            }
-            else {
-                return "-" + Math.abs(y2-y) + "/" + (x2-x);
-            }
-        }
-        else if ((x2-x) < 1) {
-            return "-" + (y2-y) + "/" + Math.abs(x2-x);
         }
         else {
-            return (y2-y) + "/" + (x2-x);
+            if ((((double)y2 - y) / (x2 - x) < 1)) {
+                if (((((double)y2 - y) / (x2 - x)) == -1)) {
+                    return "-";
+                } else if ((((double)x2 - x) < 1) && ((y2 - y) < 1)) {
+                    return Math.abs(y2 - y) + "/" + Math.abs(x2 - x);
+                } else if (((double)x2 - x) < 1) {
+                    return "-" + (y2 - y) + "/" + Math.abs(x2 - x);
+                } else {
+                    return  "-"+ Math.abs(y2 - y) + "/" + (x2 - x);
+                }
+            } else {
+                return ""+(y2 - y) + "/" + (x2 - x);
+            }
         }
+
     }
     public String distance(){
         double d = Math.sqrt(Math.pow((x2-x),2)+Math.pow((y2-y),2));
@@ -49,7 +51,7 @@ public class LinearEquation {
             return "";
             }
         else{
-            return "" + String.format("%.2f",yint);
+            return String.format("%.2f",yint);
         }
     }
     public String newX(){
@@ -61,14 +63,17 @@ public class LinearEquation {
         String s = slope();
         String yI = yInt();
         String str;
-        if (yI.indexOf("")== 0) {
+        if (yI.equals("0")) {
             str = s + "x";
         }
-        else{
-            str = s + "x + "+yI;
+        else {
+            if (yI.contains("-")) {
+                str = s + "x" + yI;
+            } else {
+                str = s + "x+" + yI;
+            }
         }
-        String display = "First Coordinate: (" + x + ","+ y +")\nSecond Coordinate: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nPoint on line: "+newX()+"\nEquation of Line: "+str;
-        return display;
+        return "First Coordinate: (" + x + ","+ y +")\nSecond Coordinate: ("+x2+","+y2+")\nSlope: "+s+"\nY-intercept: "+yI+"\nPoint on line: "+newX()+"\nEquation of Line: "+str;
     }
 
 }
