@@ -32,14 +32,14 @@ public class LinearEquation {
                 }
                 //formats slope so that it is returned as -y/x and not y/-x if slope is negative and is a fraction
                 else if ((((double)x2 - x) < 1) && ((y2 - y) < 1)) {
-                    return Math.abs(y2 - y) + "/" + Math.abs(x2 - x);
+                    return (Math.abs((double)y2 - y)) + "/" + (Math.abs(x2 - x));
                 } else if (((double)x2 - x) < 1) {
-                    return "-" + (y2 - y) + "/" + Math.abs(x2 - x);
+                    return "-" + ((double)y2 - y) + "/" + Math.abs(x2 - x);
                 } else {
                     return  "-"+ Math.abs(y2 - y) + "/" + (x2 - x);
                 }
             } else {
-                return ""+(y2 - y) + "/" + (x2 - x);
+                return ""+Math.abs((double)y2 - y) + "/" + Math.abs(x2 - x);
             }
         }
 
