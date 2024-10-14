@@ -19,7 +19,7 @@ public class LinearEquation {
             if ((((y2 - y) / (x2 - x)) == 1)) {
                 return "";
             } else {
-                int result = ((y2 - y) / (x2 - x));
+                double result = (y2 - y) / (x2 - x);
                 return "" + result;
             }
         }
@@ -32,14 +32,14 @@ public class LinearEquation {
                 }
                 //formats slope so that it is returned as -y/x and not y/-x if slope is negative and is a fraction
                 else if ((((double)x2 - x) < 1) && ((y2 - y) < 1)) {
-                    return (Math.abs((double)y2 - y)) + "/" + (Math.abs(x2 - x));
+                    return String.format("%.2f",Math.abs((double)y2 - y)) + "/" + String.format("%.2f",Math.abs((double)x2 - x));
                 } else if (((double)x2 - x) < 1) {
-                    return "-" + ((double)y2 - y) + "/" + Math.abs(x2 - x);
+                    return "-" + String.format("%.2f",(double)y2 - y) + "/" + String.format("%.2f",Math.abs((double)x2 - x));
                 } else {
-                    return  "-"+ Math.abs(y2 - y) + "/" + (x2 - x);
+                    return  "-"+ String.format("%.2f",Math.abs((double)y2 - y)) + "/" + String.format("%.2f",((double)x2 - x));
                 }
             } else {
-                return ""+Math.abs((double)y2 - y) + "/" + Math.abs(x2 - x);
+                return ""+String.format("%.2f",Math.abs((double)y2 - y)) + "/" + String.format("%.2f",Math.abs((double)x2 - x));
             }
         }
 
