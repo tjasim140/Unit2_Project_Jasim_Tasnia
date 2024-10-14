@@ -73,13 +73,14 @@ public class LinearEquation {
         String s = slope();
         String yI = yInt();
         String str;
-        //leaves out + or minus sign so no y-int is printed when y-int = 0
+
         //leaves out - sign if y-int is negative so +-y-int is not printed when formating equation
         if (yI.contains("-")) {
             str = (s + "x" + yI);
-            //Adds + so y-int is correctly printed in y=mx+b form
+            // leaves out + or minus sign so no y-int is printed when y-int = 0
         } else if (yI.equals("0")) {
             str = (s + "x");
+            //Adds + so y-int is correctly printed in y=mx+b form
         } else {
             str = (s + "x+" + yI);
         }
